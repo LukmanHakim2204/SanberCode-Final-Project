@@ -12,4 +12,8 @@ class Genre extends Model
     protected $fillable = [
         'name',
     ];
+    public function films()
+    {
+        return $this->hasMany(Film::class, 'genre_id', 'id');
+    }
 }

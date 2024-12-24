@@ -38,7 +38,15 @@
                 <td>{{ $loop->iteration }}</td>
                 <td>{{ $genre->name }}</td>
                 <td>
-                    <a href="{{ route('genre.edit', $genre->id) }}" class="btn btn-sm btn-success">Edit</a>
+                 <div class="d-flex gap-2">
+                    <a href="{{ route('genre.edit',['genre_id' => $genre->id]) }}" class="btn btn-sm btn-success  ">Edit</a>
+                    <form action="{{ route('genre.destroy', ['genre_id' => $genre->id]) }}" method="POST"
+                        onsubmit="return confirm('Yakin ingin menghapus data ini?');">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-sm btn-danger ">Delete</button>
+                    </form>
+                 </div>
                 </td>
               </tr>
               @endforeach
