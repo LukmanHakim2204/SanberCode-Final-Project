@@ -13,35 +13,21 @@
                 </a>
             </li>
 
-            <li class='sidebar-title'>Menu</li>
+            <li class='sidebar-title'>Film</li>
 
 
             <li class="sidebar-item  ">
-                <a href="form-layout.html" class='sidebar-link'>
+                <a href="{{ route('film.index') }}" class='sidebar-link'>
                     <i data-feather="layout" width="20"></i>
                     <span>List Film</span>
                 </a>
             </li>
+            @auth
 
-            <li class="sidebar-item  ">
-                <a href="form-editor.html" class='sidebar-link'>
-                    <i data-feather="layers" width="20"></i>
-                    <span>Genre</span>
-                </a>
-            </li>
-
-            <li class='sidebar-title'>Crud Menu</li>
-
-            <li class="sidebar-item  ">
-                <a href="{{ route('film.index') }}" class='sidebar-link'>
-                    <i data-feather="grid" width="20"></i>
-                    <span>Film</span>
-                </a>
-            </li>
-
+            <li class='sidebar-title'>Genre</li>
             <li class="sidebar-item  ">
                 <a href="{{ route('genre.index') }}" class='sidebar-link'>
-                    <i data-feather="file-plus" width="20"></i>
+                    <i data-feather="layers" width="20"></i>
                     <span>Genre</span>
                 </a>
             </li>
@@ -51,6 +37,21 @@
                     <span>Actor</span>
                 </a>
             </li>
+            @endauth
+
+            <li class='sidebar-title'>LOGIN</li>
+            @guest
+
+            <li class="sidebar-item">
+                <div class="d-flex justify-content-center">
+                    <a href="{{ route('login') }}" class='btn btn-sm btn-primary text-center' style="width: 80%;">
+                        <i data-feather="arrow-right-circle" width="20"></i>
+                        <span>Login</span>
+                    </a>
+                </div>
+            </li>
+            @endguest
+
 
     </ul>
 </div>

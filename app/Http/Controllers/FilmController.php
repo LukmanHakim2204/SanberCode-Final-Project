@@ -60,7 +60,8 @@ class FilmController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $films = Film::find($id);
+        return view('pages.film.detail', compact('films'));
     }
 
     /**

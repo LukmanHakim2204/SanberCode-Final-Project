@@ -21,31 +21,42 @@
         </div>
         <section class="section">
             <div class="card">
+                @auth
                 <div class="card-header text-end">
                     <a href="{{ route('film.create') }}" class="btn btn-sm btn-primary">Tambah Data Film</a>
                 </div>
+                @endauth
                 <div class="card-body">
                     <div class="row">
                         @foreach ($films as $film)
                             <div class="col-md-3 col-sm-4 mb-4">
-                                <div class="card">
+                                <div class="card" style="border: 1px solid #aaa8a8; border-radius: 5px;">
                                     <img class="card-img-top img-fluid" style="height: 200px; object-fit: cover;"
                                         src="{{ asset('uploads/' . $film->poster) }}" alt="Poster {{ $film->title }}">
                                     <div class="card-body">
                                         <h4 class="card-title">{{ $film->title }}</h4>
                                         <h6>Kategori: {{ $film->genre->name }}</h6>
-                                        <p class="text-justify">{{ Str::limit($film->summary,400) }}</p>
-                                        <div class="d-flex justify-content-center gap-2">
-                                            <a href="" class="btn btn-sm btn-secondary">Detail</a>
-                                            <a href="{{ route('film.edit', ['film_id' => $film->id]) }}"
-                                                class="btn btn-sm btn-success">Edit</a>
-                                            <form action="{{ route('film.destroy', ['film_id' => $film->id]) }}" method="POST"
-                                                onsubmit="return confirm('Yakin ingin menghapus data ini?');">
-                                                @csrf
-                                                @method('delete')
-                                                <button class="btn btn-sm btn-danger">Hapus</button>
-                                            </form>
-                                        </div>
+                                        <p style="text-align: justify;">{{ Str::limit($film->summary, 150) }}</p>
+                                        <a href="{{ route('film.show', ['film_id' => $film->id]) }}"
+                                            class="btn btn-block btn-secondary">Detail</a>
+                                        @auth
+                                            <div class=" row gap-2 mt-2">
+                                                <div class="col">
+                                                    <a href="{{ route('film.edit', ['film_id' => $film->id]) }}"
+                                                        class="btn btn-sm btn-success btn-block">Edit</a>
+                                                </div>
+                                                <div class="col">
+
+                                                    <form action="{{ route('film.destroy', ['film_id' => $film->id]) }}"
+                                                        method="POST"
+                                                        onsubmit="return confirm('Yakin ingin menghapus data ini?');">
+                                                        @csrf
+                                                        @method('delete')
+                                                        <button class="btn btn-danger btn-block">Hapus</button>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        @endauth
                                     </div>
                                 </div>
                             </div>

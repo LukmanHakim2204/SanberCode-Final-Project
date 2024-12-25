@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="{{ asset('assets/assets/vendors/perfect-scrollbar/perfect-scrollbar.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/assets/css/app.css') }}">
     <link rel="shortcut icon" href="{{ asset('assets/assets/images/favicon.svg') }}" type="image/x-icon">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 </head>
 
 <body class="d-flex flex-column min-vh-100">
