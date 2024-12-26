@@ -20,6 +20,15 @@ class Film extends Model
 
     public function genre()
     {
-        return $this->belongsTo(Genre::class, 'genre_id', 'id');
+        return $this->belongsTo(Genre::class);
+    }
+    public function reviews()
+    {
+        return $this->hasMany( Review::class);
+    }
+
+    public function actors()
+    {
+        return $this->hasMany( Actor::class);
     }
 }

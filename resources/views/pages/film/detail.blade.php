@@ -31,55 +31,54 @@
             <p class="text-justify">{{ $films->summary }}</p>
 
 
-            {{-- <div class="mt-5">
-            <h3>Review Pengguna</h3>
-            @foreach ($films->reviews as $review)
-                <div class="border p-3 mb-3">
-                    <p><strong>{{ $review->user->name }}</strong> -
-                        @for ($i = 1; $i <= 5; $i++)
-                            @if ($i <= $review->point)
-                                <i class="fas fa-star text-warning"></i> <!-- Bintang terisi -->
-                            @else
-                                <i class="far fa-star text-muted"></i> <!-- Bintang kosong -->
-                            @endif
-                        @endfor
-                    </p>
-                    <p>{{ $review->content }}</p>
-                </div>
-            @endforeach
-        </div> --}}
-
-        <div class="mt-5">
-            <h3>Berikan Review Anda</h3>
-            {{-- {{ route('film.reviews.store', ['film_id' => $films->id]) }} --}}
-            @auth
-                <form action="" method="POST">
-                    @csrf
-                    <div class="mb-3">
-                        <label for="content" class="form-label">Komentar</label>
-                        <textarea name="content" id="content" class="form-control" rows="3" required></textarea>
-                    </div>
-                    <div class="mb-3">
-                        <label for="point" class="form-label">Rating (1-5)</label>
-                        <div id="rating-stars" class="d-flex gap-1">
+            <div class="mt-5">
+                <h3>Review Pengguna</h3>
+                @foreach ($films->reviews as $review)
+                    <div class="border p-3 mb-3">
+                        <p><strong>{{ $review->user->name }}</strong> -
                             @for ($i = 1; $i <= 5; $i++)
-                                <i class="far fa-star text-warning star-input" data-value="{{ $i }}"></i>
+                                @if ($i <= $review->point)
+                                    <i class="fas fa-star text-warning"></i>
+                                @else
+                                    <i class="far fa-star text-muted"></i>
+                                @endif
                             @endfor
-                        </div>
-                        <input type="hidden" name="point" id="rating-point" required>
+                        </p>
+                        <p>{{ $review->content }}</p>
                     </div>
-                    <button type="submit" class="btn btn-primary">Kirim Review</button>
-                </form>
-            @else
-                <p>Silakan <a href="{{ route('login') }}" class="text-primary">login</a> untuk memberikan review.</p>
-            @endauth
-        </div>
+                @endforeach
+            </div>
+
+            <div class="mt-5">
+                <h3>Berikan Review Anda</h3>
+                @auth
+                    <form action="{{ route('film.reviews.store',  ['film_id' => $films->id]) }}" method="POST">
+                        @csrf
+                        <div class="mb-3">
+                            <label for="content" class="form-label">Komentar</label>
+                            <textarea name="content" id="content" class="form-control" rows="3" required></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="point" class="form-label">Rating (1-5)</label>
+                            <div id="rating-stars" class="d-flex gap-1">
+                                @for ($i = 1; $i <= 5; $i++)
+                                    <i class="far fa-star text-warning star-input" data-value="{{ $i }}"></i>
+                                @endfor
+                            </div>
+                            <input type="hidden" name="point" id="rating-point" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Kirim Review</button>
+                    </form>
+                @else
+                    <p>Silakan <a href="{{ route('login') }}" class="text-primary">login</a> untuk memberikan review.</p>
+                @endauth
+            </div>
         </section>
     </div>
 
     <script>
         document.querySelectorAll('.star-input').forEach((star) => {
-            star.addEventListener('click', function () {
+            star.addEventListener('click', function() {
                 const rating = this.getAttribute('data-value');
                 document.getElementById('rating-point').value = rating;
 
