@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CastController;
 use App\Http\Controllers\FilmController;
 use App\Http\Controllers\GenreController;
 use App\Http\Controllers\ReviewController;
@@ -35,9 +36,17 @@ Route::middleware(['auth'])->group(function () {
     Route::put('/film/{film_id}', [FilmController::class, 'update'])->name('film.update');
     Route::delete('/film/{film_id}', [FilmController::class, 'destroy'])->name('film.destroy');
 
-    Route::post('/film', [FilmController::class, 'store'])->name('film.store');
     Route::post('/film/{film_id}/reviews', [ReviewController::class, 'store'])->name('film.reviews.store');
     Route::get('/film/{film_id}', [FilmController::class, 'show'])->name('film.show');
+
+    Route::get('/cast', [CastController::class, 'index'])->name('cast.index');
+    Route::get('/cast/create', [CastController::class, 'create'])->name('cast.create');
+    Route::post('/cast', [CastController::class, 'store'])->name('cast.store');
+    Route::get('/cast/{cast_id}/edit', [CastController::class, 'edit'])->name('cast.edit');
+    Route::put('/cast/{cast_id}', [CastController::class, 'update'])->name('cast.update');
+    Route::delete('/cast/{cast_id}', [CastController::class, 'destroy'])->name('cast.destroy');
+    Route::get('/cast/{cast_id}', [CastController::class, 'show'])->name('cast.show');
+
 
 });
 

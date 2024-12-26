@@ -5,13 +5,6 @@
 
 <div class="sidebar-menu">
     <ul class="menu">
-            <li class='sidebar-title'>Main Menu</li>
-            <li class="sidebar-item active ">
-                <a href="index.html" class='sidebar-link'>
-                    <i data-feather="home" width="20"></i>
-                    <span>Dashboard</span>
-                </a>
-            </li>
 
             <li class='sidebar-title'>Film</li>
 
@@ -32,15 +25,15 @@
                 </a>
             </li>
             <li class="sidebar-item  ">
-                <a href="table-datatable.html" class='sidebar-link'>
+                <a href="{{ route('cast.index') }}" class='sidebar-link'>
                     <i data-feather="file-plus" width="20"></i>
-                    <span>Actor</span>
+                    <span>Cast</span>
                 </a>
             </li>
             @endauth
 
-            <li class='sidebar-title'>LOGIN</li>
             @guest
+            <li class='sidebar-title'>LOGIN</li>
 
             <li class="sidebar-item">
                 <div class="d-flex justify-content-center">

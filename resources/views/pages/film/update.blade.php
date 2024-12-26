@@ -51,7 +51,7 @@
 
                                             <div class="col-12">
                                                 <div class="form-group">
-                                                    <label for="first-summary-vertical">Release Year</label>
+                                                    <label for="first-summary-vertical">Summary</label>
                                                     <textarea name="summary" id="" cols="30" rows="10" class="form-control"
                                                         placeholder="Input Your Summary">{{ $film->summary }}</textarea>
                                                 </div>

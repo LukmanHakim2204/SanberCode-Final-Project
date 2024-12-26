@@ -6,14 +6,14 @@
         <div class="page-title">
             <div class="row">
                 <div class="col-12 col-md-6 order-md-1 order-last">
-                    <h3>Create New Genre</h3>
-                    <p class="text-subtitle text-muted">Add Genre Data here !!</p>
+                    <h3>Create New Cast</h3>
+                    <p class="text-subtitle text-muted">Add Cast Data here !!</p>
                 </div>
                 <div class="col-12 col-md-6 order-md-2 order-first">
                     <nav aria-label="breadcrumb" class="breadcrumb-header">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Create New Genre</li>
+                            <li class="breadcrumb-item active" aria-current="page">Create New Cast</li>
                         </ol>
                     </nav>
                 </div>
@@ -36,20 +36,34 @@
                                 </div>
                             @endif
                             <div class="card-body">
-                                <form action="{{ route('genre.store') }}" class="form form-vertical" method="POST">
+                                <form action="{{ route('cast.store') }}" class="form form-vertical" method="POST">
                                     @csrf
                                     <div class="form-body">
                                         <div class="row ">
                                             <div class="col-12">
                                                 <div class="form-group">
-                                                    <label for="genre-name-vertical">Name Genre</label>
-                                                    <input type="text" id="genre-name-vertical" class="form-control"
-                                                        name="name" placeholder="Input Your Genre "  value="{{ old('name') }}"/>
+                                                    <label for="cast-name-vertical">Name Cast</label>
+                                                    <input type="text" id="cast-name-vertical" class="form-control"
+                                                        name="name" value="{{ old('name') }}" placeholder=" Input Name Cast" />
+                                                </div>
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="form-group">
+                                                    <label for="age-name-vertical">Age Cast</label>
+                                                    <input type="text" id="age-name-vertical" class="form-control"
+                                                        name="age"  value="{{ old('age') }}" placeholder=" Input Age Cast" />
+                                                </div>
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="form-group">
+                                                    <label for="first-bio-vertical">Bio</label>
+                                                    <textarea name="bio" id="" cols="30" rows="10" class="form-control"
+                                                        placeholder="Input Your bio">{{ old('bio') }}</textarea>
                                                 </div>
                                             </div>
                                             <div class="col-12 d-flex justify-content-end">
                                                 <button type="submit" class="btn btn-primary me-1 mb-1">Submit</button>
-                                                <a href="{{ route('genre.index') }}"
+                                                <a href="{{ route('cast.index') }}"
                                                     class="btn btn-light-secondary me-1 mb-1"> Cencel</a>
                                             </div>
                                         </div>
