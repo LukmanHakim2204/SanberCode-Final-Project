@@ -1,4 +1,4 @@
-@extends('auth.layouts.app')
+@extends('auth.layouts.app', ['title' => 'Confirm'])
 
 @section('content')
     <div class="container">

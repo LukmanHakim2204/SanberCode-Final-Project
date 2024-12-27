@@ -1,4 +1,4 @@
-@extends('layout.master')
+@extends('layout.master',['title' => 'Data Cast'])
 
 @section('content')
 <div class="main-content container-fluid">
@@ -12,7 +12,7 @@
           <nav aria-label="breadcrumb" class="breadcrumb-header">
             <ol class="breadcrumb">
               <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
-              <li class="breadcrumb-item active" aria-current="page">Datatable</li>
+              <li class="breadcrumb-item active" aria-current="page">Data Cast</li>
             </ol>
           </nav>
         </div>

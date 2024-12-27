@@ -1,4 +1,4 @@
-@extends('layout.master')
+@extends('layout.master',['title' => 'Detail Data Cast'])
 
 @section('content')
     <div class="main-content container-fluid">

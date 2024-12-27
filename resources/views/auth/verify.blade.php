@@ -1,4 +1,4 @@
-@extends('layouts.app', ['title' => 'Verifikasi Email'])
+@extends('auth.layouts.app', ['title' => 'Verifikasi Email'])
 
 @section('content')
     <section class="pb-6">

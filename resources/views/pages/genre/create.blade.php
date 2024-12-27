@@ -1,4 +1,4 @@
-@extends('layout.master')
+@extends('layout.master',['title' => 'Create Data Genre'])
 
 @section('content')
 
