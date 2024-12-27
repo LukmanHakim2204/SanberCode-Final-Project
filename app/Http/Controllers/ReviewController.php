@@ -47,7 +47,7 @@ class ReviewController extends Controller
      */
     public function show(string $id)
     {
-        $films = Film::with('reviews.user')->find($id); // Pastikan relasi reviews dan user di-load
+        $films = Film::with('reviews.user')->find($id); 
         if (!$films) {
             abort(404, 'Film tidak ditemukan');
         }
