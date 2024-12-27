@@ -40,6 +40,8 @@
                 <td>
                  <div class="d-flex gap-2">
                     <a href="{{ route('genre.edit',['genre_id' => $genre->id]) }}" class="btn btn-sm btn-success  ">Edit</a>
+                    <a href="{{ route('genre.show', ['genre_id' => $genre->id]) }}"
+                        class="btn btn-sm btn-secondary">Detail</a>
                     <form action="{{ route('genre.destroy', ['genre_id' => $genre->id]) }}" method="POST"
                         onsubmit="return confirm('Yakin ingin menghapus data ini?');">
                         @csrf

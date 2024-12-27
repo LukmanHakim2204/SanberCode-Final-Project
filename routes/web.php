@@ -20,6 +20,7 @@ use App\Http\Controllers\ReviewController;
 
 Route::get('/', [FilmController::class, 'index']);
 
+Route::get('/film', [FilmController::class, 'index'])->name('film.index');
 Route::middleware(['auth'])->group(function () {
 
     Route::get('/genre', [GenreController::class, 'index'])->name('genre.index');
@@ -28,8 +29,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/genre/{genre_id}/edit', [GenreController::class, 'edit'])->name('genre.edit');
     Route::put('/genre/{genre_id}', [GenreController::class, 'update'])->name('genre.update');
     Route::delete('/genre/{genre_id}', [GenreController::class, 'destroy'])->name('genre.destroy');
+    Route::get('/genre/{genre_id}', [GenreController::class, 'show'])->name('genre.show');
 
-    Route::get('/film', [FilmController::class, 'index'])->name('film.index');
     Route::get('/film/create', [FilmController::class, 'create'])->name('film.create');
     Route::post('/film', [FilmController::class, 'store'])->name('film.store');
     Route::get('/film/{film_id}/edit', [FilmController::class, 'edit'])->name('film.edit');
@@ -37,7 +38,7 @@ Route::middleware(['auth'])->group(function () {
     Route::delete('/film/{film_id}', [FilmController::class, 'destroy'])->name('film.destroy');
 
     Route::post('/film/{film_id}/reviews', [ReviewController::class, 'store'])->name('film.reviews.store');
-    Route::get('/film/{film_id}', [FilmController::class, 'show'])->name('film.show');
+
 
     Route::get('/cast', [CastController::class, 'index'])->name('cast.index');
     Route::get('/cast/create', [CastController::class, 'create'])->name('cast.create');
