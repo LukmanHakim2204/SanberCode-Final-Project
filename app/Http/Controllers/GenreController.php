@@ -44,9 +44,9 @@ class GenreController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show($genre_id)
+    public function show($id)
     {
-        $genre = Genre::findOrFail($genre_id);
+        $genre = Genre::findOrFail($id);
         return view('pages.genre.detail', compact('genre'));
     }
 
